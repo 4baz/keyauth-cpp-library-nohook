@@ -1,3 +1,36 @@
+# hook mods
+
+-key auth hooks application in order to display error messages
+
+-meaning that when ie: key auth implemented in dll for shitty p2c and u unhook it doesnt unhook key auth pattern
+
+- game = crashed
+
+
+
+
+
+- to do (ideas) (may be shit)
+
+1. implement ability to unhook pattern thats callable from within user app?
+
+2. change log location so instead of annoying asf error popup box it can be put to function that allows printing to console already implemented within your application
+
+3.re-implement task kill shit and make it "better"?
+
+4. not do shit like this at 4 am
+
+
+
+temp changes for testing 15/8/22-
+
+-removed hook
+
+-removed anti debug taskkill shit (like that stops anyone half decent )
+
+
+
+
 # keyauth-cpp-library
 KeyAuth C++ Library
 

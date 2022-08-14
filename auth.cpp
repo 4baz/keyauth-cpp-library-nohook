@@ -60,13 +60,13 @@ std::string signature;
 
 void KeyAuth::api::init()
 {
-	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)modify, 0, 0, 0);
-	safety();
+//	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)modify, 0, 0, 0);
+	safety();//dumbshit taskkill 
 
 	if (ownerid.length() != 10 || secret.length() != 64)
 	{
-		MessageBoxA(0, XorStr("Application Not Setup Correctly. Please Watch Video Linked in main.cpp").c_str(), NULL, MB_ICONERROR);
-		exit(0);
+	//	MessageBoxA(0, XorStr("Application Not Setup Correctly (ownerid/secret wrong dumbass). Please Watch Video Linked in main.cpp").c_str(), NULL, MB_ICONERROR);
+	//	exit(0);
 	}
 
 	UUID uuid = { 0 };
@@ -131,7 +131,7 @@ void KeyAuth::api::init()
 		{
 			ShellExecuteA(0, "open", dl.c_str(), 0, 0, SW_SHOWNORMAL);
 		}
-		exit(0);
+	//	exit(0);
 	}
 }
 
@@ -370,8 +370,8 @@ void KeyAuth::api::web_login()
 
 		delete []buffer;
 
-		if (!success)
-			exit(0);
+	//	if (!success)
+		//	exit(0);
 	}
 }
 
@@ -982,12 +982,12 @@ std::string KeyAuth::api::req(std::string data, std::string url, std::string ssl
 
 void safety()
 {
-	WinExec(XorStr("cmd.exe /c taskkill /FI \"IMAGENAME eq fiddler*\" /IM * /F /T >nul 2>&1").c_str(), SW_HIDE);
-	WinExec(XorStr("cmd.exe /c taskkill /FI \"IMAGENAME eq wireshark*\" /IM * /F /T >nul 2>&1").c_str(), SW_HIDE);
-	WinExec(XorStr("cmd.exe /c taskkill /FI \"IMAGENAME eq httpdebugger*\" /IM * /F /T >nul 2>&1").c_str(), SW_HIDE);
-	WinExec(XorStr("cmd.exe /c sc stop HTTPDebuggerPro >nul 2>&1").c_str(), SW_HIDE);
-	WinExec(XorStr("cmd.exe /c taskkill /IM HTTPDebuggerSvc.exe /F >nul 2>&1").c_str(), SW_HIDE);
-	WinExec(XorStr("cmd.exe /c @RD /S /Q \"C:\\Users\\%username%\\AppData\\Local\\Microsoft\\Windows\\INetCache\\IE\" >nul 2>&1").c_str(), SW_HIDE);
+//	WinExec(XorStr("cmd.exe /c taskkill /FI \"IMAGENAME eq fiddler*\" /IM * /F /T >nul 2>&1").c_str(), SW_HIDE);
+//	WinExec(XorStr("cmd.exe /c taskkill /FI \"IMAGENAME eq wireshark*\" /IM * /F /T >nul 2>&1").c_str(), SW_HIDE);
+//	WinExec(XorStr("cmd.exe /c taskkill /FI \"IMAGENAME eq httpdebugger*\" /IM * /F /T >nul 2>&1").c_str(), SW_HIDE);
+//	WinExec(XorStr("cmd.exe /c sc stop HTTPDebuggerPro >nul 2>&1").c_str(), SW_HIDE);
+//	WinExec(XorStr("cmd.exe /c taskkill /IM HTTPDebuggerSvc.exe /F >nul 2>&1").c_str(), SW_HIDE);
+//	WinExec(XorStr("cmd.exe /c @RD /S /Q \"C:\\Users\\%username%\\AppData\\Local\\Microsoft\\Windows\\INetCache\\IE\" >nul 2>&1").c_str(), SW_HIDE);
 }
 
 std::string checksum()
@@ -1042,7 +1042,7 @@ DWORD64 Function_Address;
 void modify()
 {
 	while (true) {
-		if (Function_Address == NULL) {
+	/*	if (Function_Address == NULL) {
 			Function_Address = FindPattern(PBYTE("\x48\x89\x74\x24\x00\x57\x48\x81\xec\x00\x00\x00\x00\x49\x8b\xf0"), "xxxx?xxxx????xxx") - 0x5;
 		}
 		BYTE Instruction = *(BYTE*)Function_Address;
@@ -1050,6 +1050,6 @@ void modify()
 		if ((DWORD64)Instruction == 0xE9) {
 			abort();
 		}
-		Sleep(50);
+		Sleep(50);*/
 	}
 }
